@@ -1,0 +1,45 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Inställningar</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<!--  <ion-tabs>
+     <ion-tab tabTitle="Info" [root]="infoTab" tab-icon="information"></ion-tab>
+  <ion-tab tabTitle="Hem" [root]="homeTab" tab-icon="home"></ion-tab>
+    <ion-tab tabTitle="Inställningar" [root]="settingsTab" tab-icon="settings"></ion-tab>
+     
+</ion-tabs>
+-->
+
+<ion-content>
+  <ion-list>
+    <button ion-item (click)="goTo()">
+      Loggning
+    </button>
+   <ion-row padding>
+
+
+    
+    <button ion-item (click)="goTo()">
+      Skicka till server
+    </button>
+    <button ion-item (click)="goTo()">
+      Avstånd
+    </button>
+    <ion-item-divider >
+      <ion-label>Debug</ion-label>
+      <ion-toggle color="energized" checked="true"></ion-toggle>
+</ion-item-divider>
+</ion-row>
+  </ion-list>
+
+
+  
+
+</ion-content>
+

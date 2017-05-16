@@ -1,0 +1,88 @@
+<ion-header>
+
+  <ion-navbar color="navbarcolor">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Sepab ISA</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content >
+
+  <div class="card-background-page">
+    <ion-card>
+      <img src="./assets/img/roadsmallblueline.png" />
+        <div class="card-subtitle">Intelligent</div>
+      <div class="card-title">Speed Adaptation</div>
+    </ion-card>
+  </div>
+
+
+<ion-row padding>
+  <ion-col text-center>
+  <img src={{speedImg}} height="150" width="150"/>
+  </ion-col>
+</ion-row>
+
+<ion-row padding>
+<button ion-button color="navbarcolor" full (click)="getGeolocation()" small><ion-icon name="locate"></ion-icon>&nbsp; Get geolocation and current speedlimit</button>
+</ion-row>
+<ion-row padding>
+<button ion-button color="navbarcolor" full (click)="subscribeGeolocation()" small><ion-icon name="locate"></ion-icon>&nbsp; Watch geolocation</button>
+
+</ion-row>
+<ion-row padding>
+<button ion-button color="navbarcolor" full (click)="unsubscribeGeolocation()" small><ion-icon name="locate"></ion-icon>&nbsp; Stop geolocation</button>
+</ion-row>
+
+<ion-row padding>
+<button ion-button full color="navbarcolor" (click)="test()" small><ion-icon name="locate"></ion-icon>&nbsp; Test Thread in background</button>
+</ion-row>
+
+<ion-row padding>
+<button ion-button full color="navbarcolor" (click)="testClip()" small><ion-icon name="locate"></ion-icon>&nbsp; Test Clipped JSON from NVDB</button>
+</ion-row>
+
+
+
+
+  <div *ngIf="debug" padding>
+    <ion-item>
+      <ion-label> Speedlimit: {{speedLimit}} km/h</ion-label>    
+    </ion-item>
+     <ion-item>
+      <ion-label> Responsetime: {{ speedLimitExecTime}}  ms</ion-label>    
+    </ion-item>
+    <ion-item>
+      <ion-label> Speed: {{ currentSpeed }} km/h</ion-label>    
+    </ion-item>
+    <ion-item>
+      <ion-label> Distance to road: {{ distanceToRoad }} m</ion-label>    
+    </ion-item>
+</div>
+<ion-row padding>
+Continuos watching gps 
+<ion-item-divider >
+      <ion-label>Active</ion-label>
+      <ion-toggle color="navbarcolor" checked="true"></ion-toggle>
+</ion-item-divider>
+</ion-row>
+
+<div *ngIf="locationWatch" padding>
+   <ion-item>
+      <ion-label>Speed:  {{locationWatch.speed}} km/h</ion-label>     |
+    </ion-item>  
+     <ion-item>
+      <ion-label>Accuracy for gps:  {{locationWatch.accuracy}} m</ion-label>     |
+    </ion-item>  
+  <ion-item>
+      <ion-label>Lat:  {{locationWatch.lat}} | Lng:  {{locationWatch.lng}}</ion-label>     |
+    </ion-item>    
+</div>
+ 
+
+<div id="map"></div>
+<div id="dummymap"></div>
+</ion-content>
